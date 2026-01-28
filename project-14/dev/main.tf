@@ -13,3 +13,13 @@ module "ec2" {
   env                    = "dev"
 }
 
+module "s3-bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "5.10.0"
+}
+
+module "web-sg" {
+  source      = "github.com/yaskidanova/terraform/modules/sg"
+  name        = "web-sg"
+  description = "This is web-sg"
+}
